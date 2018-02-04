@@ -1,1 +1,4 @@
-
+michael:
+  name: Michael Example
+  email: cyyzero@qq.com
+  password_digest: <%= User.digit('password') %>
