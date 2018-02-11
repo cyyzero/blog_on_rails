@@ -1,0 +1,27 @@
+<li id="article-<%= article.id %>">
+  <%= link_to gravatar_for(article.user, size: 80), article.user %>
+  <span class="user">
+    <%= link_to article.user do %>
+        <h4><%= article.user.name %></h4>
+    <% end %>
+  </span>
+  <span class="content">
+    <%= link_to article_url(article.id) do %>
+        <h2><%= article.title %></h2>
+    <% end %>
+  </span>
+  <% if (current_user == article.user || (logged_in? && current_user.admin == 1)) %>
+    <span>
+      <%= link_to 'Edit', edit_article_path(article) %>
+    </span>
+      |
+    <span>
+      <%= link_to 'Delete', article_path(article.id), method: :delete,
+                  data: { confirm: "You sure?"} %>
+    </span>
+  <% end %>
+  <span class="text-left">
+    Posted <%= time_ago_in_words(article.created_at) %> ago.
+  </span>
+
+</li>

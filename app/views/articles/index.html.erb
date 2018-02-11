@@ -1,0 +1,14 @@
+<%= provide(:title, "Articles") %>
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+    <% if @articles.any? %>
+        <h3>articles (<%= Article.count %>)</h3>
+        <ol class="articles">
+          <%= render @articles %>
+        </ol>
+        <%= will_paginate @articles %>
+    <% end %>
+  </div>
+  <div class="col-md-2"></div>
+</div>

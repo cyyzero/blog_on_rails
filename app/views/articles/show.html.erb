@@ -1,0 +1,87 @@
+<%= provide(:title, @article.title) %>
+<div class="page-header">
+  <h1 class="text-center">
+    <strong>
+      <%= @article.title %>
+    </strong>
+  </h1>
+
+  <div class="container" color="grey">
+    <div class="row clearfix">
+      <div class="col-md-12 column">
+        <h4 class="text-right">
+          <strong>
+            <%= link_to @article.user.name, @article.user %>
+          </strong> |
+          <em>
+            <%= @article.created_at %>
+          </em>
+        </h4>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="panel panel-default">
+  <div class="well-lg">
+    <%= markdown @article.content %>
+  </div>
+</div>
+
+<% if @article.comments.any? %>
+  <div class="panel panel-default">
+    <div class="well-lg">
+      <h2> Comments:</h2>
+      <% @article.comments.each do |comment| %>
+        <HR style="FILTER: alpha(opacity=100,finishopacity=0,style=3)" width="80%" SIZE=3>
+        <div class="container">
+          <div class="row clearfix">
+            <div class="col-md-1 column">
+              <%= link_to gravatar_for(comment.user, size: 80), comment.user %>
+            </div>
+            <div class="col-md-10 column">
+              <h5>
+                <%= link_to comment.user.name, comment.user %>
+              </h5>
+              <%= comment.content %>
+                <% if logged_in? && current_user.admin == 1 || current_user?(comment.user) %>
+                  <br>
+                  <div class="text-right">
+                    <%= link_to "delete", article_comment_url(comment.article_id, comment.id), method: :delete,
+                                                                                        data: { confirm: "You sure?"} %>
+                  </div>
+                  <% else %>
+                    <br>
+                    <br>
+                    <% end %>
+                      <br>
+            </div>
+          </div>
+        </div>
+        <% end %>
+    </div>
+  </div>
+  <% end %>
+
+
+    <div class="well-lg">
+      <% if logged_in? %>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">
+              Add a comment:
+            </h3>
+          </div>
+          <div class="panel-body">
+            <%= form_for([@article, @article.comments.build]) do |f| %>
+              <p>
+                <%= f.text_area :content, class: "form-control" %>
+              </p>
+              <p>
+                <%= f.submit class: "btn btn-primary" %>
+              </p>
+              <% end %>
+          </div>
+        </div>
+
+        <% end %>
+    </div>

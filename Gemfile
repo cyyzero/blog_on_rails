@@ -14,6 +14,8 @@ gem 'jbuilder',     '2.7.0'
 gem 'bootstrap-will_paginate', '1.0.0'
 gem 'bootstrap-sass', '3.3.6'
 gem 'bcrypt',       '3.1.11'
+gem 'redcarpet',     '3.4.0'
+gem 'coderay',      '1.1.2'
 
 group :development, :test do
   gem 'sqlite3', '1.3.13'

@@ -1,0 +1,12 @@
+<% provide(:title, 'Update Article') %>
+<%= form_for(@article) do |f| %>
+    <%= render 'error' %>
+
+    <%= f.label :title %>
+    <%= f.text_field :title, class: "form-control" %>
+
+    <%= f.label :content %>
+    <%= f.text_area :content, class: "form-control", rows: "50" %>
+
+    <%= f.submit "Commit the article", class: "btn btn-primary" %>
+<% end %>
