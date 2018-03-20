@@ -1,15 +1,15 @@
-# Ruby on Rails Tutorial sample application
+# A simple blog powered by Ruby on Rails
 
-This is the sample application for
+You can visit this site on https://whispering-anchorage-66382.herokuapp.com/  
+
+ps: I'll be happy if you sign up in my web site :)
+
+I learn a lot about Rails from
 [*Ruby on Rails Tutorial:
 Learn Web Development with Rails*](http://www.railstutorial.org/)
 by [Michael Hartl](http://www.michaelhartl.com/).
 
-## License
 
-All source code in the [Ruby on Rails Tutorial](http://railstutorial.org/)
-is available jointly under the MIT License and the Beerware License. See
-[LICENSE.md](LICENSE.md) for details.
 
 ## Getting started
 
