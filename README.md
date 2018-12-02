@@ -1,6 +1,6 @@
 # A simple blog powered by Ruby on Rails
 
-You can visit this site on https://whispering-anchorage-66382.herokuapp.com/  
+You can visit this site on https://cyyzero.herokuapp.com/  
 
 ps: I'll be happy if you sign up in my web site :)
 
